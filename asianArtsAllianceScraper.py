@@ -36,7 +36,6 @@ for oppLink in oppLinks: #loops through all opportunities on each page
     oppR = requests.get(OPP_LINK + oppLink)
     oppSoup = BeautifulSoup(oppR.content, 'html.parser')
     title = oppSoup.select('.large-title')[0].contents[0] if oppSoup.select('.large-title') else NONE
-    print(title)
     descriptionList = []
 
     descriptionTags = oppSoup.select('.order-1')[1] if oppSoup.select('.order-1') else '' #selects description box
@@ -49,7 +48,6 @@ for oppLink in oppLinks: #loops through all opportunities on each page
             descriptionList.append(innerText)
     descriptionList.pop()
     description = ''.join(descriptionList[1:])
-    print(description)
     deadlineList = oppSoup.select('.col-8')[1]#.contents[0] if oppSoup.select('.date-display-single') else NONE
     deadlinePre= deadlineList.select('div')[1].contents[0]
     deadline = ''
