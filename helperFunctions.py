@@ -1,4 +1,4 @@
-from locationSets import countriesSet, citiesSet, countryToCity, statesSet
+from locationSets import countriesSet, citiesSet, statesSet, countryToCity
 import tagLists
 from tagLists import typeOfOpportunity, keywords, partTime, fullTime
 import string
@@ -13,6 +13,8 @@ def tagToStr(tag): #recursive function that converts tag and its contents to str
             return tagToStr(tag.contents[0])
         else:
             return ''
+
+#TODO add space before and after all city, state, country names
 
 def findLocation(description):
     location = ''
@@ -49,6 +51,57 @@ def findLocation(description):
         location = ONLINE
 
     return location
+
+
+# def findLocation(description):
+#     location = ''
+#     state = None
+#     city = None
+#     country = None
+#     found = False
+#     #look for state first, if found, country is united states....then search city
+
+#     i = 0        
+#     while not found and i < len(statesSet):
+#         result = description.find(statesSet[i])
+#         if result >= 0:
+#             found = True
+#             state = statesSet[i]
+#             if state != 'Georgia':
+#                 country = 'United States'
+#         i += 1
+
+#     i = 0
+#     found= False
+#     while not found and i < len(citiesSet):
+#         result = description.find(citiesSet[i])
+#         if result >= 0:
+#             found = True
+#             city = citiesSet[i]
+#             #country = countryToCity[i]
+#         i += 1
+
+#     i = 0
+#     found= False
+#     while not found and i < len(countriesSet):
+#         result = description.find(countriesSet[i])
+#         if result >= 0:
+#             found = True
+#             country = countriesSet[i]
+#         i += 1
+    
+
+#     if not city == None:
+#         location += city
+#     if not state == None:
+#         location += ', ' + state
+#     if not country == None:
+#         location += ', ' + country
+#     if len(location) == 0:
+#         location = ONLINE
+#     if location[0] == ',':
+#         location = location[1:]
+#     return location
 
 def findOppTypeTags(descriptionLower):
     #Wix tag formatting - ["tag1","tag2"]
