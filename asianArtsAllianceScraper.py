@@ -1,6 +1,7 @@
-#! Web scraper for Composers Site, saves data in CSV file formatted for upload to Wix
+#! Web scraper for American Asian Arts Alliance Site, saves data in CSV file formatted for upload to Wix
 #World cities list attribution - https://simplemaps.com/data/world-cities
-#TODO put some sections inside functions
+
+#TODO pull location from location field....
 
 import csv
 from datetime import datetime
