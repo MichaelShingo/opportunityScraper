@@ -1,4 +1,4 @@
-#! Web scraper for Composers Site, saves data in CSV file formatted for upload to Wix
+# Web scraper for Composers Site, saves data in CSV file formatted for upload to Wix
 #World cities list attribution - https://simplemaps.com/data/world-cities
 #TODO put some sections inside functions
 
