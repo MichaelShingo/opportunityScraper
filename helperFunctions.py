@@ -14,7 +14,6 @@ def tagToStr(tag): #recursive function that converts tag and its contents to str
         else:
             return ''
 
-#TODO add space before and after all city, state, country names
 
 def findLocation(description):
     location = ''
@@ -32,21 +31,24 @@ def findLocation(description):
             country = countryToCity[i]
         i += 1
     
-    if country == 'United States':
-        found = False
-        i = 0        
-        while not found and i < len(statesSet):
-            result = description.find(statesSet[i])
-            if result >= 0:
-                found = True
-                state = statesSet[i]
-            i += 1
-    if not city == None:
+    # if country == 'United States':
+    found = False
+    i = 0        
+    while not found and i < len(statesSet):
+        result = description.find(statesSet[i])
+        if result >= 0:
+            found = True
+            state = statesSet[i]
+        i += 1
+    if city:
         location += city
-    if not state == None:
+    if city and state:
         location += ', ' + state
-    if not country == None:
+    elif state:
+        location = state + ', United States'
+    if country:
         location += ', ' + country
+
     if len(location) == 0:
         location = ONLINE
 
